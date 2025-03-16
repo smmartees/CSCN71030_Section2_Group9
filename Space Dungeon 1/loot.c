@@ -21,8 +21,27 @@ void destroyWeapon(WEAPON* weapon) {
 	free(weapon);
 }
 //Function To create 3 predefined weapons and selects one weapon using random generator
+WEAPON* generateRandomWeapon() {
 
 
+	int randomSelector;
+	WEAPON* gameWeapons[3];
+
+	gameWeapons[0] = createWeapon("Lightsaber sword", 25.0);
+	gameWeapons[1]= createWeapon("Lightsaber axe", 30.0);
+	gameWeapons[2] = createWeapon("Lightsaber double sword", 35.0);
+
+	randomSelector = rand() % 3;
+	WEAPON* selectedWeapon = gameWeapons[randomSelector];
+
+	for (int i = 0; i < TOTAL_WEAPONS; i++) {
+		if (i != randomSelector) {
+			destroyWeapon(gameWeapons[i]);
+		}
+	}
+	return selectedWeapon;
+
+}
 //Function to create armour
 ARMOUR* createArmour(char* name, double protection) {
 	ARMOUR* newArmour = (ARMOUR*)malloc(sizeof(ARMOUR));

@@ -1,5 +1,7 @@
 #pragma once
 
+#define TOTAL_WEAPONS  3
+
 typedef struct weapon {
 	char* name;
 	double damage;
@@ -13,7 +15,7 @@ typedef struct armour {
 WEAPON* createWeapon(char* name, double damage);
 void destroyWeapon(WEAPON* weapon);
 
-WEAPON* createRandomWeapons();
+WEAPON* generateRandomWeapon();
 
 ARMOUR* createArmour(char* name, double protection);
 void destroyArmour(ARMOUR* armour);
