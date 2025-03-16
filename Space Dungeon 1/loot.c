@@ -59,3 +59,23 @@ ARMOUR* createArmour(char* name, double protection) {
 void destroyArmour(ARMOUR* armour) {
 	free(armour);
 }
+
+ARMOUR* generateRandomArmour() {
+	
+	int randomSelector;
+	ARMOUR* gameArmours[3];
+
+	gameArmours[0] = createArmour("Mandalorian armor", 20.0);
+	gameArmours[1] = createArmour("Clone Trooper armor", 25.0);
+	gameArmours[2] = createArmour("Imperial Stormtrooper armor", 30.0);
+
+	randomSelector = rand() % 3;
+	ARMOUR* selectedArmour = gameArmours[randomSelector];
+
+	for (int i = 0; i < TOTAL_WEAPONS; i++) {
+		if (i != randomSelector) {
+			destroyArmour(gameArmours[i]);
+		}
+	}
+	return selectedArmour;
+}

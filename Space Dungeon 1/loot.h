@@ -19,3 +19,5 @@ WEAPON* generateRandomWeapon();
 
 ARMOUR* createArmour(char* name, double protection);
 void destroyArmour(ARMOUR* armour);
+
+ARMOUR* generateRandomArmour();
