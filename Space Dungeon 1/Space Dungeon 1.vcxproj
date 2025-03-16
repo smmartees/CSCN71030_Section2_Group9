@@ -127,7 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="loot.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="player.c" />
+    <ClCompile Include="saveload.c" />
+    <ClCompile Include="userroominterface.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="loot.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="saveload.h" />
+    <ClInclude Include="userroominterface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
