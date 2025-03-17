@@ -1,6 +1,6 @@
 // Implementation for the Alien ADT
 
-#include <Alien.h>
+#include "Alien.h"
 #include <stdio.h>
 #include <stdlib.h>
 
