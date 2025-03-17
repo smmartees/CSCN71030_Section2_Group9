@@ -3,9 +3,14 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 
 int main(void) {
+
+	// random seed
+	srand(time(NULL));
 
 
 	return 0;
