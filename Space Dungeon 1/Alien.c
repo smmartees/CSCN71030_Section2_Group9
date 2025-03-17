@@ -1,18 +1,9 @@
 // Implementation for the Alien ADT
 
-
+#include <Alien.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-
-typedef struct Alien {
-
-	double health;
-	double attack;
-	double defence;
-	char* name;
-
-}ALIEN, * PALIEN;
 
 
 // create alien
