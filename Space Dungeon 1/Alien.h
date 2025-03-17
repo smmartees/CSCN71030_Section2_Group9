@@ -5,7 +5,13 @@
 
 #include <stdio.h>
 
-
+#define NUM_ALIEN_TYPES			3
+#define ALIEN_HEALTH_FLOOR		10
+#define ALIEN_HEALTH_RANGE		20
+#define ALIEN_ATTACK_FLOOR		3
+#define ALIEN_ATTACK_RANGE		6
+#define ALIEN_DEFENCE_FLOOR		2
+#define ALIEN_DEFENCE_RANGE		4
 
 typedef struct Alien {
 	
@@ -18,7 +24,10 @@ typedef struct Alien {
 
 
 // create alien
-PALIEN CreateAlien(void);
+PALIEN CreateAlien(double diffMod);
+
+// create alien name
+char* SetAlienName(void);
 
 // get alien health
 double GetAlienHealth(ALIEN alien);
@@ -33,7 +42,7 @@ double GetAlienDefence(ALIEN alien);
 char* GetAlienName(ALIEN alien);
 
 // reduce alien health (receiving damage)
-void ReduceAlienHealth(PALIEN alien);
+void ReduceAlienHealth(PALIEN alien, double damage);
 
 // destroy alien
 void DestroyAlien(PALIEN alien);
