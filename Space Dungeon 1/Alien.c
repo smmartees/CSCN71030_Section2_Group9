@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 // Implementation for the Alien ADT
 
 #include "Alien.h"
@@ -16,7 +18,7 @@ PALIEN CreateAlien(double diffMod) {
 	}
 
 	// setting alien name
-	strcpy(newAlien->name, CreateAlienName());
+	strcpy(newAlien->name, SetAlienName());
 
 	// setting alien health
 	int baseHealth = randomNumber(ALIEN_HEALTH_RANGE, ALIEN_HEALTH_FLOOR);
@@ -35,7 +37,7 @@ PALIEN CreateAlien(double diffMod) {
 // create alien name
 char* SetAlienName(void) {
 	int nameNum = randomNumber(NUM_ALIEN_TYPES, LIST_FLOOR);
-	char* alienName;
+	char* alienName = "\0";
 
 	switch (nameNum)
 	{
