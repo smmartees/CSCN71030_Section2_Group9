@@ -36,13 +36,44 @@ PALIEN CreateAlien(double diffMod) {
 
 // create alien name
 char* SetAlienName(void) {
+	int prefixNum = randomNumber(NUM_ALIEN_TYPES, LIST_FLOOR);
 	int nameNum = randomNumber(NUM_ALIEN_TYPES, LIST_FLOOR);
+
+	char* completeAlienName = "\0";
 	char* alienName = "\0";
+	char* alienPrefix = "\0";
+
+	/*char alienName[3][3] = {
+		{"Xenomorph ", "Pirate "},
+		{"Dirty ", "Grotesque ", "Unfathomable "},
+
+	};
+
+	alienName[0][0] = "pistol";
+	alienName[0][1] = "rifle";
+	alienName[0][2] = "smg";
+	alienName[1][0] = "shank";
+	alienName[1][1] = "sword";*/
+
+	switch (prefixNum)
+	{
+	case 1:
+		alienPrefix = "Dirty ";
+		break;
+	case 2:
+		alienPrefix = "Grotesque ";
+		break;
+	case 3:
+		alienPrefix = "Unfathomable ";
+		break;
+	default:
+		break;
+	}
 
 	switch (nameNum)
 	{
 	case 1:
-		alienName = "Xenomorph";
+		alienName = "Space Xenomorph";
 		break;
 	case 2:
 		alienName = "Space Pirate";
@@ -53,8 +84,10 @@ char* SetAlienName(void) {
 	default:
 		break;
 	}
+
+	strcat(alienPrefix, alienName);
 	
-	return alienName;
+	return alienPrefix;
 }
 
 // get alien health
