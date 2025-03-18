@@ -128,12 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Alien.c" />
+    <ClCompile Include="Event.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Progression.c" />
     <ClCompile Include="utils.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alien.h" />
+    <ClInclude Include="Event.h" />
     <ClInclude Include="Progression.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
