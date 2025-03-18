@@ -9,10 +9,5 @@
 
 
 // randomly determine which event
-void eventTrigger(PROGRESSION prog, PPLAYER player);
+int eventTrigger(void);
 
-// trigger fight event
-//void fightEvent(PROGRESSION prog, PPLAYER player);
-
-// trigger loot event
-//void lootEvent(PROGRESSION prog, PPLAYER player);

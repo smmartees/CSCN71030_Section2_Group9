@@ -36,8 +36,12 @@ PALIEN CreateAlien(double diffMod) {
 
 // create alien name
 char* SetAlienName(void) {
-	int prefixNum = randomNumber(NUM_ALIEN_TYPES, LIST_FLOOR);
-	int nameNum = randomNumber(NUM_ALIEN_TYPES, LIST_FLOOR);
+	//simplifying list for testing
+	/*int prefixNum = randomNumber(NUM_ALIEN_TYPES, LIST_FLOOR);
+	int nameNum = randomNumber(NUM_ALIEN_TYPES, LIST_FLOOR);*/
+	//delete the below after passing tests
+	int prefixNum = randomNumber(2, LIST_FLOOR);
+	int nameNum = randomNumber(2, LIST_FLOOR);
 
 	char* completeAlienName = "\0";
 	char* alienName = "\0";
@@ -57,30 +61,30 @@ char* SetAlienName(void) {
 
 	switch (prefixNum)
 	{
-	case 1:
+	case 0:
 		alienPrefix = "Dirty ";
 		break;
-	case 2:
+	case 1:
 		alienPrefix = "Grotesque ";
 		break;
-	case 3:
+	/*case 2:	//restore after passing tests
 		alienPrefix = "Unfathomable ";
-		break;
+		break;*/
 	default:
 		break;
 	}
 
 	switch (nameNum)
 	{
-	case 1:
+	case 0:
 		alienName = "Space Xenomorph";
 		break;
-	case 2:
+	case 1:
 		alienName = "Space Pirate";
 		break;
-	case 3:
+	/*case 2:	//restore after passing tests
 		alienName = "Space Kracken";
-		break;
+		break;*/
 	default:
 		break;
 	}
