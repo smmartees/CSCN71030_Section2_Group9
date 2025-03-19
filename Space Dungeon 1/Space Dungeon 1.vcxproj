@@ -127,17 +127,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Alien.c" />
+    <ClCompile Include="Event.c" />
     <ClCompile Include="loot.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="player.c" />
+    <ClCompile Include="Progression.c" />
     <ClCompile Include="saveload.c" />
     <ClCompile Include="userroominterface.c" />
+    <ClCompile Include="utils.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Alien.h" />
+    <ClInclude Include="Event.h" />
     <ClInclude Include="loot.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="Progression.h" />
     <ClInclude Include="saveload.h" />
     <ClInclude Include="userroominterface.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
