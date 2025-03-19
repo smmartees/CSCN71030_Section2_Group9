@@ -89,7 +89,7 @@ char* SetAlienName(void) {
 		break;
 	}
 
-	strcat(alienPrefix, alienName);
+	strcat(alienPrefix, alienName); /// TODO: this line throws exception (Access Violation)
 
 	return alienPrefix;
 }
