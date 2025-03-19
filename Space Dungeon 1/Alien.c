@@ -43,7 +43,7 @@ char* SetAlienName(void) {
 	int prefixNum = randomNumber(2, LIST_FLOOR);
 	int nameNum = randomNumber(2, LIST_FLOOR);
 
-	char* completeAlienName = "\0";
+	
 	char* alienName = "\0";
 	char* alienPrefix = "\0";
 
