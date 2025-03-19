@@ -3,10 +3,14 @@
 
 #include "player.h"
 #include "userroominterface.h"
+#include "utils.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 
 int main(void) {
+	srand(time(NULL));
 
 	ARMOUR armour = { "Chestplate", 10.0 };
 	WEAPON weapon = { "Sword", 20.0 };
