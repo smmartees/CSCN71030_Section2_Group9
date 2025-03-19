@@ -1,4 +1,4 @@
-// Interface for the Progression ADT
+// Implementation for the Progression ADT
 
 
 #include "Progression.h"
