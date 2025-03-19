@@ -47,18 +47,6 @@ char* SetAlienName(void) {
 	char* alienName = "\0";
 	char* alienPrefix = "\0";
 
-	/*char alienName[3][3] = {
-		{"Xenomorph ", "Pirate "},
-		{"Dirty ", "Grotesque ", "Unfathomable "},
-
-	};
-
-	alienName[0][0] = "pistol";
-	alienName[0][1] = "rifle";
-	alienName[0][2] = "smg";
-	alienName[1][0] = "shank";
-	alienName[1][1] = "sword";*/
-
 	switch (prefixNum)
 	{
 	case 0:
@@ -94,24 +82,26 @@ char* SetAlienName(void) {
 	return alienPrefix;
 }
 
+// get alien name
+char* GetAlienName(ALIEN alien) {
+	return alien.name;
+}
+
 // get alien health
 double GetAlienHealth(ALIEN alien) {
 	return alien.health;
 }
+
 
 // get alien attack
 double GetAlienAttack(ALIEN alien) {
 	return alien.attack;
 }
 
+
 // get alien defence
 double GetAlienDefence(ALIEN alien) {
 	return alien.defence;
-}
-
-// get alien name
-char* GetAlienName(ALIEN alien) {
-	return alien.name;
 }
 
 // reduce alien health (receiving damage)

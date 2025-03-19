@@ -4,10 +4,14 @@
 #include "mainmenu.h"
 #include "player.h"
 #include "userroominterface.h"
+#include "utils.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 
 int main(void) {
+
 	int n = 1; // command line argument
 	int choice = mainMenu();
 	if (choice == 3) {
@@ -31,6 +35,7 @@ int main(void) {
 	}
 
 	roomInterface(player, prog);
+
 	destroyPlayer(player);
 	return 0;
 }
