@@ -28,6 +28,8 @@ PALIEN CreateAlien(double diffMod);
 
 // create alien name
 char* SetAlienName(void);
+// get alien name
+char* GetAlienName(ALIEN alien);
 
 // get alien health
 double GetAlienHealth(ALIEN alien);
@@ -37,9 +39,6 @@ double GetAlienAttack(ALIEN alien);
 
 // get alien defence
 double GetAlienDefence(ALIEN alien);
-
-// get alien name
-char* GetAlienName(ALIEN alien);
 
 // reduce alien health (receiving damage)
 void ReduceAlienHealth(PALIEN alien, double damage);
