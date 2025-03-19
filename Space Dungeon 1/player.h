@@ -9,7 +9,7 @@ typedef struct player {
 	ARMOUR armour;
 	WEAPON weapon;
 	int potions;
-
+	
 }PLAYER, * PPLAYER;
 
 // creation in heap
@@ -23,6 +23,7 @@ void addPotion(PPLAYER player);
 void usePotion(PPLAYER player);
 
 // getters
+double getHealth(PPLAYER player);
 char* getWeaponName(PPLAYER player);
 char* getArmourName(PPLAYER player);
 double getArmourProtection(PPLAYER player);

@@ -14,11 +14,13 @@ void displayRoomInterface() {
     printf("Enter Choice: ");
 }
 
-void roomInterface(PPLAYER player) { /// need to add progression module inside here as well
+void roomInterface(PPLAYER player, PPROGRESSION prog) {
     // room flags
     bool quitCheck = true;
     bool newRoomCheck = true;
     bool deathCheck = false;
+    int eventType;
+    int winnerCheck;
     do {
 
         // print menu here
@@ -30,33 +32,79 @@ void roomInterface(PPLAYER player) { /// need to add progression module inside h
         case 'l': // taking the left door
             // call event trigger 
             printf("taking left door\n");
+            eventType = eventTrigger();
 
-
-            // check event type and proceed
-
-
-
-            // check door as empty
+            if (eventType == LOOT) {
+                // give the player loot
+                printf("Got loot\n");///NEED TO ADD THE GETTING LOOT FUNCTION HERE
+                incrProgCount(prog);
+            }
+            else if (eventType == FIGHT) {
+                winnerCheck = triggerFight(player, prog);
+                if (winnerCheck == true) {
+                    printf("You have Won the Fight!\n");
+                    incrProgCount(prog);
+                }
+                else
+                {
+                    deathCheck = true;
+                }
+            }
+            else {
+                printf("There has been an triggering the event type\n");
+            }
 
             break;
         case 'r': // taking the right door
             // call event trigger 
-            printf("taking right door\n");
+            printf("taking left door\n");
+            eventType = eventTrigger();
 
-            // check event type and proceed
-
-
-            // check door as empty
+            if (eventType == LOOT) {
+                // give the player loot
+                printf("Got loot\n");///NEED TO ADD THE GETTING LOOT FUNCTION HERE
+                incrProgCount(prog);
+            }
+            else if (eventType == FIGHT) {
+                winnerCheck = triggerFight(player, prog);
+                if (winnerCheck == true) {
+                    printf("You have Won the Fight!\n");
+                    incrProgCount(prog);
+                }
+                else
+                {
+                    deathCheck = true;
+                }
+            }
+            else {
+                printf("There has been an triggering the event type\n");
+            }
 
             break;
         case 'c':// take the center door
             // call event trigger 
-            printf("taking center door\n");
+            printf("taking left door\n");
+            eventType = eventTrigger();
 
-            // check event type and proceed
-
-
-            // trigger progression flag
+            if (eventType == LOOT) {
+                // give the player loot
+                printf("Got loot\n");///NEED TO ADD THE GETTING LOOT FUNCTION HERE
+                incrProgCount(prog);
+            }
+            else if (eventType == FIGHT) {
+                winnerCheck = triggerFight(player, prog);
+                if (winnerCheck == true) {
+                    printf("You have Won the Fight!\n");
+                    incrProgCount(prog);
+                }
+                else
+                {
+                    deathCheck = true;
+                }
+            }
+            else {
+                printf("There has been an triggering the event type\n");
+            }
 
             break;
         case 'p': // Take a potion
@@ -66,17 +114,23 @@ void roomInterface(PPLAYER player) { /// need to add progression module inside h
             // check inventory 
             displayPlayer(player);
             break;
+        case 's': //save game
+            saveGame(player, prog);
+            break;
         case 'q': // Quit game
-            quitCheck = false;
+            quitCheck = false;/// TODO: add save case for saving without quitting
+            saveGame(player, prog);
             break;
         default:
             printf("Invalid option\n");
             break;
         }
 
+        if (deathCheck == true) {
+            quitCheck = false;
+            printf("YOU DIED!\n");
+        }
+
     } while (quitCheck);
-
-
-    // add possible other conditions/checks here for exiting game/interface
 
 }
