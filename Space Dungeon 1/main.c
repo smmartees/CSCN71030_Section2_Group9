@@ -9,8 +9,6 @@
 
 int main(void) {
 
-	// random seed
-	srand(time(NULL));
 
 
 	return 0;
