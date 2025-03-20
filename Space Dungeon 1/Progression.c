@@ -24,27 +24,27 @@ PPROGRESSION initNewProg(int modifier) {
 	return newProg;
 }
 
-// load & initialize progression struct from save file
-PPROGRESSION loadProg(int dungeonPosition, int modifier) {
-	PPROGRESSION loadedProg = (PPROGRESSION)malloc(sizeof(PROGRESSION));
-	if (loadedProg == NULL) {
-		printf("Error initializing Progress struct from save file.\n");
-		exit(EXIT_FAILURE);
-	}
-
-	loadedProg->progCount = dungeonPosition;
-	loadedProg->commandMod = modifier;
-
-	SetProgMod(loadedProg);
-	SetDiffMod(loadedProg);
-
-	return loadedProg;
-}
-
-// set progression count (how many rooms have they gone through)
-void SetProgCount(PPROGRESSION prog, int dungeonPosition) {
-	prog->progCount = dungeonPosition;
-}
+//// load & initialize progression struct from save file
+//PPROGRESSION loadProg(int dungeonPosition, int modifier) {
+//	PPROGRESSION loadedProg = (PPROGRESSION)malloc(sizeof(PROGRESSION));
+//	if (loadedProg == NULL) {
+//		printf("Error initializing Progress struct from save file.\n");
+//		exit(EXIT_FAILURE);
+//	}
+//
+//	loadedProg->progCount = dungeonPosition;
+//	loadedProg->commandMod = modifier;
+//
+//	SetProgMod(loadedProg);
+//	SetDiffMod(loadedProg);
+//
+//	return loadedProg;
+//}
+//
+//// set progression count (how many rooms have they gone through)
+//void SetProgCount(PPROGRESSION prog, int dungeonPosition) {
+//	prog->progCount = dungeonPosition;
+////
 
 // set progression modifier
 void SetProgMod(PPROGRESSION prog) {
