@@ -12,6 +12,8 @@
 
 int main(void) {
 
+	srand(time(NULL));
+
 	int n = 1; // command line argument
 	int choice = mainMenu();
 	if (choice == 3) {

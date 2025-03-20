@@ -18,7 +18,7 @@ typedef struct Alien {
 	double health;
 	double attack;
 	double defence;
-	char* name;
+	char name[50];
 
 }ALIEN, * PALIEN;
 
