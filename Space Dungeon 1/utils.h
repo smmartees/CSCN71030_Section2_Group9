@@ -10,3 +10,5 @@
 
 
 int randomNumber(int range, int floor);
+
+void remove_newline(char* str);

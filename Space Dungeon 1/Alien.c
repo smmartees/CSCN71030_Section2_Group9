@@ -43,7 +43,7 @@ char* SetAlienName(void) {
 	int prefixNum = randomNumber(2, LIST_FLOOR);
 	int nameNum = randomNumber(2, LIST_FLOOR);
 
-	
+	char fullName[50] = "";
 	char* alienName = "\0";
 	char* alienPrefix = "\0";
 
@@ -77,9 +77,12 @@ char* SetAlienName(void) {
 		break;
 	}
 
-	strcat(alienPrefix, alienName); /// TODO: this line throws exception (Access Violation)
+	
 
-	return alienPrefix;
+	strcat(fullName, alienPrefix);
+	strcat(fullName, alienName); /// TODO: this line throws exception (Access Violation)
+
+	return fullName;
 }
 
 // get alien name
