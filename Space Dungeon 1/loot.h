@@ -1,5 +1,4 @@
 #pragma once
-
 #define TOTAL_WEAPONS  3
 
 typedef struct weapon {

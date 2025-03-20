@@ -18,11 +18,29 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="player.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="userroominterface.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="saveload.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="loot.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="userroominterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="saveload.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="loot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
