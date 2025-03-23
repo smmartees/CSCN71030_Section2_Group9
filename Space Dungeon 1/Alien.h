@@ -12,13 +12,17 @@
 #define ALIEN_ATTACK_RANGE		6
 #define ALIEN_DEFENCE_FLOOR		2
 #define ALIEN_DEFENCE_RANGE		4
+#define ALIEN_NAME_OPTION		1
+#define ALIEN_FULL_NAME			50
+
+
 
 typedef struct Alien {
 
 	double health;
 	double attack;
 	double defence;
-	char name[50];
+	char name[ALIEN_FULL_NAME];
 
 }ALIEN, * PALIEN;
 
