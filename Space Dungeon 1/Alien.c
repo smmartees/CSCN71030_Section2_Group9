@@ -44,8 +44,8 @@ char* SetAlienName(void) {
 	int nameNum = randomNumber(ALIEN_NAME_OPTION, LIST_FLOOR);
 
 	char fullName[ALIEN_FULL_NAME] = "";
-	char* alienName = "\0";
-	char* alienPrefix = "\0";
+	char* alienName = "";
+	char* alienPrefix = "";
 
 	switch (prefixNum)
 	{
@@ -116,6 +116,6 @@ void ReduceAlienHealth(PALIEN alien, double damage) {
 }
 
 // destroy alien
-void DestroyAlien(PALIEN alien) {
+bool DestroyAlien(PALIEN alien) {
 	free(alien);
 }

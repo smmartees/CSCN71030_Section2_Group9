@@ -4,6 +4,7 @@
 
 
 #include <stdio.h>
+#include <stdbool.h>
 
 #define NUM_ALIEN_TYPES			3
 #define ALIEN_HEALTH_FLOOR		10
@@ -48,4 +49,4 @@ double GetAlienDefence(ALIEN alien);
 void ReduceAlienHealth(PALIEN alien, double damage);
 
 // destroy alien
-void DestroyAlien(PALIEN alien);
+bool DestroyAlien(PALIEN alien);

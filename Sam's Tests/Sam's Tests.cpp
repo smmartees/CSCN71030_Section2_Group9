@@ -65,19 +65,39 @@ namespace SamsTests
 		}
 		TEST_METHOD(CreateAlien_name_001)
 		{
+			// This test needs the defined ALIEN_NAME_OPTION to 1
 			double difficultyMod = 1.00;
 			PALIEN alien = CreateAlien(difficultyMod);
 
-			//char* actualName = GetAlienName(*alien);
 			char* actualName = alien->name;
+			char expectedName[ALIEN_FULL_NAME] = "Dirty Space Xenomorph";
 
-			bool boolName = (actualName == "Dirty Space Xenomorph"
-				|| actualName == "Dirty Space Pirate"
-				|| actualName == "Grotesque Space Xenomorph"
-				|| actualName == "Grotesque Space Pirate");
-
-			Assert::IsTrue(boolName);
+			Assert::AreEqual(expectedName, actualName);
 
 		}
+		TEST_METHOD(SetAlienName_001)
+		{
+			// This test needs the defined ALIEN_NAME_OPTION to 1
+			char* actualName = SetAlienName();
+			char expectedName[ALIEN_FULL_NAME] = "Dirty Space Xenomorph";
+
+			Assert::AreEqual(expectedName, actualName);
+
+		}
+		TEST_METHOD(ReduceAlienHealth_001)
+		{
+			// This test needs the defined ALIEN_NAME_OPTION to 1
+			double difficultyMod = 1.00;
+			PALIEN alien = CreateAlien(difficultyMod);
+			
+			double damageReceived = 4.00;
+			double expectedHealth = alien->health - damageReceived;
+			ReduceAlienHealth(alien, damageReceived);
+			double actualHealth = alien->health;
+
+			Assert::AreEqual(expectedHealth, actualHealth);
+
+		}
+
 	};
 }
