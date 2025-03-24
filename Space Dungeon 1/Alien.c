@@ -18,7 +18,7 @@ PALIEN CreateAlien(double diffMod) {
 	}
 
 	// setting alien name
-	strcpy(newAlien->name, SetAlienName());
+	strcpy_s(newAlien->name, sizeof(newAlien->name), SetAlienName());
 
 	// setting alien health
 	int baseHealth = randomNumber(ALIEN_HEALTH_RANGE, ALIEN_HEALTH_FLOOR);
@@ -40,12 +40,12 @@ char* SetAlienName(void) {
 	/*int prefixNum = randomNumber(NUM_ALIEN_TYPES, LIST_FLOOR);
 	int nameNum = randomNumber(NUM_ALIEN_TYPES, LIST_FLOOR);*/
 	//delete the below after passing tests
-	int prefixNum = randomNumber(2, LIST_FLOOR);
-	int nameNum = randomNumber(2, LIST_FLOOR);
+	int prefixNum = randomNumber(ALIEN_NAME_OPTION, LIST_FLOOR);
+	int nameNum = randomNumber(ALIEN_NAME_OPTION, LIST_FLOOR);
 
-	char fullName[50] = "";
-	char* alienName = "\0";
-	char* alienPrefix = "\0";
+	char fullName[ALIEN_FULL_NAME] = "";
+	char* alienName = "";
+	char* alienPrefix = "";
 
 	switch (prefixNum)
 	{
@@ -79,10 +79,13 @@ char* SetAlienName(void) {
 
 	
 
-	strcat(fullName, alienPrefix);
-	strcat(fullName, alienName); /// TODO: this line throws exception (Access Violation)
+	strcat_s(fullName, sizeof(fullName), alienPrefix);
+	strcat_s(fullName, sizeof(fullName), alienName); /// TODO: this line throws exception (Access Violation)
 
-	return fullName;
+	char finalName[ALIEN_FULL_NAME] = "";
+	strcpy_s(finalName, sizeof(fullName), fullName);
+
+	return finalName;
 }
 
 // get alien name
@@ -113,6 +116,6 @@ void ReduceAlienHealth(PALIEN alien, double damage) {
 }
 
 // destroy alien
-void DestroyAlien(PALIEN alien) {
+bool DestroyAlien(PALIEN alien) {
 	free(alien);
 }
