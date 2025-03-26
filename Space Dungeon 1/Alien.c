@@ -31,7 +31,7 @@ PALIEN CreateAlien(double diffMod) {
 	// setting alien defence
 	int baseDefence = randomNumber(ALIEN_DEFENCE_RANGE, ALIEN_DEFENCE_FLOOR);
 	newAlien->defence = (double)baseDefence * diffMod;
-
+	
 }
 
 // create alien name
