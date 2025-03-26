@@ -118,4 +118,5 @@ void ReduceAlienHealth(PALIEN alien, double damage) {
 // destroy alien
 bool DestroyAlien(PALIEN alien) {
 	free(alien);
+	return true;
 }
