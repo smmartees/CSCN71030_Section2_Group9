@@ -55,9 +55,9 @@ char* SetAlienName(void) {
 	case 1:
 		alienPrefix = "Grotesque ";
 		break;
-		/*case 2:	//restore after passing tests
-			alienPrefix = "Unfathomable ";
-			break;*/
+	case 2:
+		alienPrefix = "Unfathomable ";
+		break;
 	default:
 		break;
 	}
@@ -70,9 +70,9 @@ char* SetAlienName(void) {
 	case 1:
 		alienName = "Space Pirate";
 		break;
-		/*case 2:	//restore after passing tests
-			alienName = "Space Kracken";
-			break;*/
+	case 2:
+		alienName = "Space Kracken";
+		break;
 	default:
 		break;
 	}
