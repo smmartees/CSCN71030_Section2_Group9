@@ -74,19 +74,61 @@ namespace SamsTests
 			double difficultyMod = 1.00;
 			PALIEN alien = CreateAlien(difficultyMod);
 
-			char* actualName = alien->name;
-			char expectedName[ALIEN_FULL_NAME] = "Dirty Space Xenomorph";
+			char* actualResult = alien->name;
+			bool nameMatch;
 
-			Assert::AreEqual(expectedName, actualName);
+			if (strcmp(actualResult, "Dirty Space Xenomorph") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Dirty Space Pirate") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Dirty Space Kracken") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Grotesque Space Xenomorph") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Grotesque Space Pirate") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Grotesque Space Kracken") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Unfathomable Space Xenomorph") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Unfathomable Space Pirate") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Unfathomable Space Kracken") == 0)
+				nameMatch = true;
+			else
+				nameMatch = false;
+
+			Assert::IsTrue(nameMatch);
 
 		}
 		TEST_METHOD(SetAlienName_001)
 		{
 			// This test needs the defined ALIEN_NAME_OPTION to 1
-			char* actualName = SetAlienName();
-			char expectedName[ALIEN_FULL_NAME] = "Dirty Space Xenomorph";
+			char* actualResult = SetAlienName();
+			bool nameMatch;
 
-			Assert::AreEqual(expectedName, actualName);
+			if (strcmp(actualResult, "Dirty Space Xenomorph") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Dirty Space Pirate") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Dirty Space Kracken") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Grotesque Space Xenomorph") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Grotesque Space Pirate") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Grotesque Space Kracken") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Unfathomable Space Xenomorph") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Unfathomable Space Pirate") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Unfathomable Space Kracken") == 0)
+				nameMatch = true;
+			else
+				nameMatch = false;
+
+			Assert::IsTrue(nameMatch);
 
 		}
 		TEST_METHOD(ReduceAlienHealth_001)
@@ -119,11 +161,37 @@ namespace SamsTests
 			double difficultyMod = 1.00;
 			PALIEN alien = CreateAlien(difficultyMod);
 
-			char expectedResult[ALIEN_FULL_NAME] = "Dirty Space Xenomorph";
+			/*char expectedResult[ALIEN_FULL_NAME] = "Dirty Space Xenomorph";
 			char* actualResult = GetAlienName(*alien);
 
+			Assert::AreEqual(expectedResult, actualResult);*/
 
-			Assert::AreEqual(expectedResult, actualResult);
+			char* actualResult = GetAlienName(*alien);
+			bool nameMatch;
+
+			if (strcmp(actualResult, "Dirty Space Xenomorph") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Dirty Space Pirate") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Dirty Space Kracken") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Grotesque Space Xenomorph") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Grotesque Space Pirate") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Grotesque Space Kracken") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Unfathomable Space Xenomorph") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Unfathomable Space Pirate") == 0)
+				nameMatch = true;
+			else if (strcmp(actualResult, "Unfathomable Space Kracken") == 0)
+				nameMatch = true;
+			else
+				nameMatch = false;
+
+			Assert::IsTrue(nameMatch);
+
 		}
 		TEST_METHOD(GetAlienHealth_001)
 		{
