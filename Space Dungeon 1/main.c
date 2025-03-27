@@ -12,7 +12,7 @@
 
 int main(void) {
 
-	// seed for game randomization
+	// seed for game randomization events
 	srand(time(NULL));
 
 	int n = 1; // command line argument
