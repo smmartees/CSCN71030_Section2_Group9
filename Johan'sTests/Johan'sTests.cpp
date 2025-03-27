@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "pch.h"
 #include "CppUnitTest.h"
 
@@ -117,10 +118,14 @@ namespace JohansTests
 		
 		TEST_METHOD(TEST_FIGHT_001)
 		{ // Set up test environment
-			PPLAYER player = createPlayer(100,{"fire Helmet" , 0.0},{"Fire sword", 10.0},1);
+		
+			WEAPON* weapon = createWeapon("Sword", 10.00);
+			ARMOUR* armour = createArmour("Helmet", 0.00);
+
+			PPLAYER player = createPlayer(100, armour, weapon, 1);
 
 			PALIEN alien = CreateAlien(1.0);
-			
+			double alienHealth = GetAlienHealth(*alien);
 
 			// Manually set values for testing
 			alien->health = 100.0;
@@ -128,14 +133,14 @@ namespace JohansTests
 			alien->defence = 0.0;
 			
 		
-			changeHealth(player, 20);
+			changeHealth(player, 20.00);
 			ReduceAlienHealth(alien, 0);
 			calculateDamage(player, alien, 1);
 
 
 			// Expected values
-			double expectedPlayerHealth = 80.0;
-			double expectedAlienHealth = 90.0;
+			double expectedPlayerHealth = 70.00;
+			double expectedAlienHealth = 90.00 ;
 
 			// Assertions
 			Assert::AreEqual(expectedPlayerHealth, player->health);
@@ -143,42 +148,7 @@ namespace JohansTests
 			destroyPlayer(player);
 			DestroyAlien(alien);
 		}
-		TEST_METHOD(TEST_SAVEWEAPON_001) {
 
-			//// Set up test environment
-			//char* testFilePath = "test_weapon.dat";
-			//FILE* fp = fopen(testFilePath, "wb");
-
-			//WEAPON weapon;
-			//strcpy(weapon.name, "Sword");
-			//weapon.damage = 50.0;
-
-			//// Call function
-			//saveWeapon(fp, &weapon);
-			//fclose(fp);
-
-			//// Reopen file to validate written data
-			//fp = fopen(testFilePath, "rb");
-
-			//// Read values from file
-			//int weaponNameLength;
-			//fread(&weaponNameLength, sizeof(int), 1, fp);
-			//char weaponName[256];
-			//fread(weaponName, sizeof(char), weaponNameLength, fp);
-			//double weaponDamage;
-			//fread(&weaponDamage, sizeof(double), 1, fp);
-			//fclose(fp);
-
-			//// Expected values
-			//int expectedNameLength = 6; // "Sword" + null terminator
-			//char expectedName[] = "Sword";
-			//double expectedDamage = 50.0;
-
-			//// Assertions
-			//Assert::AreEqual(expectedNameLength, weaponNameLength);
-			//Assert::AreEqual(0, strcmp(expectedName, weaponName)); // String comparison
-			//Assert::AreEqual(expectedDamage, weaponDamage);
-		}
 
 
 	};
