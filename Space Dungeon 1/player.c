@@ -24,10 +24,16 @@ void changeHealth(PPLAYER player, double damage) {
 }
 
 void changeArmour(PPLAYER player, ARMOUR* armour) {
+	if (player->armour) {
+		free(player->armour);  // Free the old weapon if it was dynamically allocated
+	}
 	player->armour = armour;
 }
 
 void changeWeapon(PPLAYER player, WEAPON* weapon) {
+	if (player->weapon) {
+		free(player->weapon);  // Free the old weapon if it was dynamically allocated
+	}
 	player->weapon = weapon;
 }
 
@@ -81,5 +87,9 @@ void displayPlayer(PPLAYER player) {
 }
 
 void destroyPlayer(PPLAYER player) {
+	/*free(player->weapon->name);
+	free(player->armour->name);
+	free(player->weapon);
+	free(player->armour);*/
 	free(player);
 }
