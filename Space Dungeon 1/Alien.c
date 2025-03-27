@@ -25,6 +25,7 @@ PALIEN CreateAlien(double diffMod) {
 	// setting alien health
 	int baseHealth = randomNumber(ALIEN_HEALTH_RANGE, ALIEN_HEALTH_FLOOR);
 	newAlien->health = (double)baseHealth * diffMod;
+	newAlien->ogHealth = newAlien->health;
 
 	// setting alien attack
 	int baseAttack = randomNumber(ALIEN_ATTACK_RANGE, ALIEN_ATTACK_FLOOR);
@@ -125,4 +126,19 @@ void ReduceAlienHealth(PALIEN alien, double damage) {
 bool DestroyAlien(PALIEN alien) {
 	free(alien);
 	return true;
+}
+
+// provides context to the alien's health & damage aka how hurt does it look
+void AlienContextHealth(ALIEN alien) {
+	
+	if (alien.health >= (alien.ogHealth * 0.75))
+		printf("The isn't even breaking a sweat!! Wait.. do aliens sweat?\n");
+	else if (alien.health <= (alien.ogHealth * 0.75))
+		printf("The alien is starting to show signs of damage!\n");
+	else if (alien.health <= (alien.ogHealth * 0.5))
+		printf("The alien.. it bleeds.. it can die..\n");
+	else if (alien.health <= (alien.ogHealth * 0.25))
+		printf("The alien is badly injured. A wounded animal can be the most dangerous!\n");
+	else
+		printf("Dead as doornail.\n");
 }
