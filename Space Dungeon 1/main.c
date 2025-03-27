@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define DEFAULT_DAMAGE 10.00
+#define DEFAULT_ARMOUR 5.00
 
 int main(void) {
 
@@ -22,8 +24,8 @@ int main(void) {
 		exit(EXIT_SUCCESS);
 	}
 	// Game Defaults
-	ARMOUR* armour = createArmour("Helmet", 15.00); // default start armour
-	WEAPON* weapon = createWeapon("Axe", 20.00); // default start weapon
+	ARMOUR* armour = createArmour("Helmet", DEFAULT_ARMOUR); // default start armour
+	WEAPON* weapon = createWeapon("Axe", DEFAULT_DAMAGE); // default start weapon
 	PPLAYER player = createPlayer(HEALTH_DEFAULT, armour, weapon, POTION_DEFAULT); // default new character
 	PPROGRESSION prog = initNewProg(n);
 
@@ -45,8 +47,6 @@ int main(void) {
 	// deallocate memory 
 	/// could add some destroying functions to the following items
 	free(prog);
-	free(player->weapon); /// can't free weapon/armour names, as they have not been allocated properly. 
-	free(player->armour); /// need to allocate memory to the names within the loot module (createArmour/createWeapon functions (malloc the names)) 
-	destroyPlayer(player); /// can add the frees into destroy player after fixing createArmour/createWeapon
+	destroyPlayer(player); 
 	return 0;
 }
