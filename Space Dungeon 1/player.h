@@ -6,19 +6,19 @@
 
 typedef struct player {
 	double health;
-	ARMOUR armour;
-	WEAPON weapon;
+	ARMOUR* armour;
+	WEAPON* weapon;
 	int potions;
 	
 }PLAYER, * PPLAYER;
 
 // creation in heap
-PPLAYER createPlayer(double health, ARMOUR armour, WEAPON weapon, int potions);
+PPLAYER createPlayer(double health, ARMOUR* armour, WEAPON* weapon, int potions);
 
 // setters
 void changeHealth(PPLAYER player, double damage);
-void changeArmour(PPLAYER player, ARMOUR armour);
-void changeWeapon(PPLAYER player, WEAPON weapon);
+void changeArmour(PPLAYER player, ARMOUR* armour);
+void changeWeapon(PPLAYER player, WEAPON* weapon);
 void addPotion(PPLAYER player);
 void usePotion(PPLAYER player);
 
