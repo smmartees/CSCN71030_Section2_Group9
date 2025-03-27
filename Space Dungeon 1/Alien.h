@@ -4,6 +4,7 @@
 
 
 #include <stdio.h>
+#include <stdbool.h>
 
 #define NUM_ALIEN_TYPES			3
 #define ALIEN_HEALTH_FLOOR		10
@@ -12,13 +13,17 @@
 #define ALIEN_ATTACK_RANGE		6
 #define ALIEN_DEFENCE_FLOOR		2
 #define ALIEN_DEFENCE_RANGE		4
+#define ALIEN_NAME_OPTION		3
+#define ALIEN_FULL_NAME			50
+
+
 
 typedef struct Alien {
 
 	double health;
 	double attack;
 	double defence;
-	char name[50];
+	char name[ALIEN_FULL_NAME];
 
 }ALIEN, * PALIEN;
 
@@ -44,4 +49,4 @@ double GetAlienDefence(ALIEN alien);
 void ReduceAlienHealth(PALIEN alien, double damage);
 
 // destroy alien
-void DestroyAlien(PALIEN alien);
+bool DestroyAlien(PALIEN alien);
