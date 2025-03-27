@@ -1,5 +1,3 @@
-
-
 #include "pch.h"
 #include "CppUnitTest.h"
 #include <stdbool.h>
@@ -8,13 +6,9 @@
 
 extern "C" {
 #include "../Space Dungeon 1/Alien.h"
-#include "../Space Dungeon 1/Alien.c"
 #include "../Space Dungeon 1/utils.h"
-#include "../Space Dungeon 1/utils.c"
 #include "../Space Dungeon 1/Progression.h"
-#include "../Space Dungeon 1/Progression.c"
 #include "../Space Dungeon 1/Event.h"
-#include "../Space Dungeon 1/Event.c"
 }
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -23,8 +17,18 @@ namespace SamsTests
 {
 	TEST_CLASS(Alien_Module_Tests)
 	{
+
 	public:
 		
+		TEST_METHOD(CreateAlien_001)
+		{
+			int comMod = 2;
+			PPROGRESSION prog = initNewProg(comMod);
+
+			PALIEN alien = CreateAlien(prog->diffMod);
+
+			Assert::IsNotNull(alien);
+		}
 		TEST_METHOD(CreateAlien_health_001)
 		{
 			int comMod = 2;
@@ -233,6 +237,14 @@ namespace SamsTests
 	public:
 
 		TEST_METHOD(initNewProg_001)
+		{
+			int comMod = 2;
+			PPROGRESSION prog = initNewProg(comMod);
+
+			Assert::IsNotNull(prog);
+
+		}
+		TEST_METHOD(initNewProg_002)
 		{
 			int comMod = 2;
 			PPROGRESSION prog = initNewProg(comMod);
