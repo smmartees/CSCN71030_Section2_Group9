@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "pch.h"
 #include "CppUnitTest.h"
 
@@ -149,7 +150,7 @@ namespace JohansTests
 			//char* testFilePath = "test_weapon.dat";
 			//FILE* fp = fopen(testFilePath, "wb");
 
-			//WEAPON weapon;
+			//WEAPON  weapon = { 0 };
 			//strcpy(weapon.name, "Sword");
 			//weapon.damage = 50.0;
 
@@ -162,7 +163,7 @@ namespace JohansTests
 
 			//// Read values from file
 			//int weaponNameLength;
-			//fread(&weaponNameLength, sizeof(int), 1, fp);
+			////fread(&weaponNameLength, sizeof(int), 1, fp);
 			//char weaponName[256];
 			//fread(weaponName, sizeof(char), weaponNameLength, fp);
 			//double weaponDamage;
