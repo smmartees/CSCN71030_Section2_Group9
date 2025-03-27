@@ -18,7 +18,9 @@ PALIEN CreateAlien(double diffMod) {
 	}
 
 	// setting alien name
+
 	strcpy_s(newAlien->name, sizeof(newAlien->name), SetAlienName());
+
 
 	// setting alien health
 	int baseHealth = randomNumber(ALIEN_HEALTH_RANGE, ALIEN_HEALTH_FLOOR);
@@ -31,7 +33,11 @@ PALIEN CreateAlien(double diffMod) {
 	// setting alien defence
 	int baseDefence = randomNumber(ALIEN_DEFENCE_RANGE, ALIEN_DEFENCE_FLOOR);
 	newAlien->defence = (double)baseDefence * diffMod;
-	
+
+
+
+	return newAlien;
+
 }
 
 // create alien name
