@@ -15,33 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c">
+    <ClCompile Include="Sam%27s Tests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="player.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="userroominterface.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="saveload.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="loot.c">
+    <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="userroominterface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="saveload.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="loot.h">
+    <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
