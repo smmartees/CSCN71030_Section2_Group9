@@ -20,6 +20,7 @@
 
 typedef struct Alien {
 
+	double ogHealth;
 	double health;
 	double attack;
 	double defence;
@@ -50,3 +51,6 @@ void ReduceAlienHealth(PALIEN alien, double damage);
 
 // destroy alien
 bool DestroyAlien(PALIEN alien);
+
+// provides context to the alien's health & damage aka how hurt does it look
+void AlienContextHealth(ALIEN alien);
