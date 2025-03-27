@@ -15,6 +15,8 @@ void displayMoves();
 
 int alienMoveSelection();
 
+void displayHealthNumbers(PPLAYER player, PALIEN alien);
+
 void calculateDamage(PPLAYER player, PALIEN alien, int pMove);
 
 bool triggerFight(PPLAYER player, PPROGRESSION prog);

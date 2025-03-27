@@ -44,13 +44,13 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
                 if (lootType == 1) {
                     ARMOUR* newArmour = generateRandomArmour();
                     changeArmour(player, newArmour);
-                    printf("you have recieved a %s with %f protection\n", newArmour->name, newArmour->protection);
+                    printf("you have recieved a %s with %.2f protection\n", newArmour->name, newArmour->protection);
                 }
                 else if (lootType == 2)
                 {
                     WEAPON* newWeapon = generateRandomWeapon();
                     changeWeapon(player, newWeapon);
-                    printf("you have recieved a %s with %f damage\n", newWeapon->name, newWeapon->damage);
+                    printf("you have recieved a %s with %.2f damage\n", newWeapon->name, newWeapon->damage);
                 }
                 else
                 {
@@ -88,13 +88,13 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
                 if (lootType == 1) {
                     ARMOUR* newArmour = generateRandomArmour();
                     changeArmour(player, newArmour);
-                    printf("you have recieved a %s with %f protection\n", newArmour->name, newArmour->protection);
+                    printf("you have recieved a %s with %.2f protection\n", newArmour->name, newArmour->protection);
                 }
                 else if (lootType == 2)
                 {
                     WEAPON* newWeapon = generateRandomWeapon();
                     changeWeapon(player, newWeapon);
-                    printf("you have recieved a %s with %f damage\n", newWeapon->name, newWeapon->damage);
+                    printf("you have recieved a %s with %.2f damage\n", newWeapon->name, newWeapon->damage);
                 }
                 else
                 {
@@ -132,13 +132,13 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
                 if (lootType == 1) {
                     ARMOUR* newArmour = generateRandomArmour();
                     changeArmour(player, newArmour);
-                    printf("you have recieved a %s with %f protection\n", newArmour->name, newArmour->protection);
+                    printf("you have recieved a %s with %.2f protection\n", newArmour->name, newArmour->protection);
                 }
                 else if (lootType == 2)
                 {
                     WEAPON* newWeapon = generateRandomWeapon();
                     changeWeapon(player, newWeapon);
-                    printf("you have recieved a %s with %f damage\n", newWeapon->name, newWeapon->damage);
+                    printf("you have recieved a %s with %.2f damage\n", newWeapon->name, newWeapon->damage);
                 }
                 else
                 {
