@@ -16,6 +16,10 @@ int alienMoveSelection() {
     return randomNumber(3, 1);
 }
 
+void displayHealthNumbers(PPLAYER player, PALIEN alien) {
+    printf("Player Health: %.2f\n", player->health);
+    printf("Alien Health: %.2f\n", alien->health);
+}
 
 // calculate the damage being inflicted and then distribute to the player/alien
 void calculateDamage(PPLAYER player, PALIEN alien, int pMove) {
@@ -33,22 +37,26 @@ void calculateDamage(PPLAYER player, PALIEN alien, int pMove) {
             changeHealth(player, GetAlienAttack(*alien));
             ReduceAlienHealth(alien, attack(player));
             printf("you both attack\n");
+            displayHealthNumbers(player, alien);
             break;
         case 2: // player attack || alien block
             reducedDamage1 = GetAlienAttack(*alien) - getArmourProtection(player);
             ReduceAlienHealth(alien, reducedDamage1);
             printf("you attack, alien blocks\n");
+            displayHealthNumbers(player, alien);
             break;
         case 3: // player attack || alien dodge
             fiftyfifty = randomNumber(2, 1);
             printf("you attack, alien dodges\n");
             if (fiftyfifty == 1){ // dodge success
                 printf("The Alien successfully dodged your attack\n");
+                displayHealthNumbers(player, alien);
             }
             else // dodge fail
             {
                 ReduceAlienHealth(alien, attack(player));
                 printf("the alien failed to dodge your attack\n");
+                displayHealthNumbers(player, alien);
             }
 
             break;
@@ -68,12 +76,15 @@ void calculateDamage(PPLAYER player, PALIEN alien, int pMove) {
             reducedDamage1 = attack(player) - GetAlienDefence(*alien);
             changeHealth(player, reducedDamage1);
             printf("you block, alien attacks\n");
+            displayHealthNumbers(player, alien);
             break;
         case 2: // player blocks || alien blocks
             printf("You have both chosen a defensive strategy, nothing happens\n");
+            displayHealthNumbers(player, alien);
             break;
         case 3: // player blocks || alien dodge
             printf("While blocking the alien has tried to dodge, nothing happens\n");
+            displayHealthNumbers(player, alien);
             break;
         default:
             printf("The inputted alien move was not a valid int\n");
@@ -91,24 +102,29 @@ void calculateDamage(PPLAYER player, PALIEN alien, int pMove) {
 
             if (fiftyfifty == 1) { // dodge success
                 printf("You have successfully dodged the alien's attack\n");
+                displayHealthNumbers(player, alien);
             }
             else // dodge fail
             {
                 changeHealth(player, GetAlienAttack(*alien));
                 printf("you failed to dodge alien attack\n");
+                displayHealthNumbers(player, alien);
             }
 
             break;
         case 2: // player dodges || alien blocks
             printf("While dodging the alien thought you were attack and attempted block, nothing happens\n");
+            displayHealthNumbers(player, alien);
             break;
         case 3: // player dodges || alien dodges
             printf("You both dodge, nothing happens\n");
+            displayHealthNumbers(player, alien);
             break;
         default:
             printf("The inputted alien move was not a valid int\n");
             break;
         }
+        break;
     default:
         printf("The inputted player move was not a valid int\n");
         break;
@@ -121,7 +137,12 @@ bool triggerFight(PPLAYER player, PPROGRESSION prog) {
 
     // generate alien here
     PALIEN alien = CreateAlien(prog->diffMod);
+    printf("%s:\n", alien->name);
+    printf("Alien Health: %.2f\n", alien->health);
+    printf("Alien Attack: %.2f\n", alien->attack);
+    printf("Alien Defence: %.2f\n", alien->defence);
 
+    
     do {
 
         // print menu here
@@ -131,17 +152,17 @@ bool triggerFight(PPLAYER player, PPROGRESSION prog) {
 
         switch (inputChar) {
         case 'a': // attack 
-            printf("Attacking Alien\n");
+            printf("Attacking Alien...\n");
             calculateDamage(player, alien, ATTACK);
 
             break;
         case 'b': // block
-            printf("Blocking Alien Attack\n");
+            printf("Blocking Alien Attack...\n");
             calculateDamage(player, alien, BLOCK);
 
             break;
         case 'd':// dodge
-            printf("taking center door\n");
+            printf("Dodging...\n");
             calculateDamage(player, alien, DODGE);
             break;
         case 'p': // Take a potion
