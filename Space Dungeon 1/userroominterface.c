@@ -1,5 +1,6 @@
 #include "userroominterface.h"
 #include "player.h"
+#include "utils.h"
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -10,6 +11,8 @@ void displayRoomInterface() {
     printf("[c] take the center door\n");
     printf("[p] take a health potion\n");
     printf("[i] check your inventory\n");
+    printf("[o] show progress\n");
+    printf("[s] save Game\n");
     printf("[q] Quit game\n");
     printf("Enter Choice: ");
 }
@@ -31,15 +34,33 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
         switch (inputChar) {
         case 'l': // taking the left door
             // call event trigger 
-            printf("taking left door\n");
+            printf("\ntaking left door\n");
             eventType = eventTrigger();
 
             if (eventType == LOOT) {
                 // give the player loot
-                printf("Got loot\n");///NEED TO ADD THE GETTING LOOT FUNCTION HERE
+                printf("\nYou have found loot in this room...\n");
+                int lootType = randomNumber(3, 1);
+                if (lootType == 1) {
+                    ARMOUR* newArmour = generateRandomArmour();
+                    changeArmour(player, newArmour);
+                    printf("you have recieved a %s with %f protection\n", newArmour->name, newArmour->protection);
+                }
+                else if (lootType == 2)
+                {
+                    WEAPON* newWeapon = generateRandomWeapon();
+                    changeWeapon(player, newWeapon);
+                    printf("you have recieved a %s with %f damage\n", newWeapon->name, newWeapon->damage);
+                }
+                else
+                {
+                    printf("You have recieved a potion\n");
+                    addPotion(player);
+                }
                 incrProgCount(prog);
             }
             else if (eventType == FIGHT) {
+                printf("You have encountered a space alien in this room...\n");
                 winnerCheck = triggerFight(player, prog);
                 if (winnerCheck == true) {
                     printf("You have Won the Fight!\n");
@@ -57,15 +78,33 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
             break;
         case 'r': // taking the right door
             // call event trigger 
-            printf("taking left door\n");
+            printf("taking right door\n");
             eventType = eventTrigger();
 
             if (eventType == LOOT) {
                 // give the player loot
-                printf("Got loot\n");///NEED TO ADD THE GETTING LOOT FUNCTION HERE
+                printf("\nYou have found loot in this room...\n");
+                int lootType = randomNumber(3, 1);
+                if (lootType == 1) {
+                    ARMOUR* newArmour = generateRandomArmour();
+                    changeArmour(player, newArmour);
+                    printf("you have recieved a %s with %f protection\n", newArmour->name, newArmour->protection);
+                }
+                else if (lootType == 2)
+                {
+                    WEAPON* newWeapon = generateRandomWeapon();
+                    changeWeapon(player, newWeapon);
+                    printf("you have recieved a %s with %f damage\n", newWeapon->name, newWeapon->damage);
+                }
+                else
+                {
+                    printf("You have recieved a potion\n");
+                    addPotion(player);
+                }
                 incrProgCount(prog);
             }
             else if (eventType == FIGHT) {
+                printf("You have encountered a space alien in this room...\n");
                 winnerCheck = triggerFight(player, prog);
                 if (winnerCheck == true) {
                     printf("You have Won the Fight!\n");
@@ -83,15 +122,33 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
             break;
         case 'c':// take the center door
             // call event trigger 
-            printf("taking left door\n");
+            printf("taking center door\n");
             eventType = eventTrigger();
 
             if (eventType == LOOT) {
                 // give the player loot
-                printf("Got loot\n");///NEED TO ADD THE GETTING LOOT FUNCTION HERE
+                printf("\nYou have found loot in this room...\n");
+                int lootType = randomNumber(3, 1);
+                if (lootType == 1) {
+                    ARMOUR* newArmour = generateRandomArmour();
+                    changeArmour(player, newArmour);
+                    printf("you have recieved a %s with %f protection\n", newArmour->name, newArmour->protection);
+                }
+                else if (lootType == 2)
+                {
+                    WEAPON* newWeapon = generateRandomWeapon();
+                    changeWeapon(player, newWeapon);
+                    printf("you have recieved a %s with %f damage\n", newWeapon->name, newWeapon->damage);
+                }
+                else
+                {
+                    printf("You have recieved a potion\n");
+                    addPotion(player);
+                }
                 incrProgCount(prog);
             }
             else if (eventType == FIGHT) {
+                printf("You have encountered a space alien in this room...\n");
                 winnerCheck = triggerFight(player, prog);
                 if (winnerCheck == true) {
                     printf("You have Won the Fight!\n");
@@ -114,12 +171,15 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
             // check inventory 
             displayPlayer(player);
             break;
+        case 'o': // display progress
+            printf("Level: %d\n", prog->progCount);
+            break;
         case 's': //save game
-            saveGame(player, prog);
+            saveGame(player, prog, SAVEFILE);
             break;
         case 'q': // Quit game
-            quitCheck = false;/// TODO: add save case for saving without quitting
-            saveGame(player, prog);
+            quitCheck = false;
+            saveGame(player, prog, SAVEFILE);
             break;
         default:
             printf("Invalid option\n");

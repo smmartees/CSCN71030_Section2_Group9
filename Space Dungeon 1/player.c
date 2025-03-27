@@ -4,7 +4,7 @@
 
 // Player function definitions
 
-PPLAYER createPlayer(double health, ARMOUR armour, WEAPON weapon, int potions) {
+PPLAYER createPlayer(double health, ARMOUR* armour, WEAPON* weapon, int potions) {
 	PPLAYER newPlayer = (PPLAYER)malloc(sizeof(PLAYER));
 	if (newPlayer == NULL) { // check for malloc failure
 		fprintf(stderr, "Malloc failed to allocate\n");
@@ -23,11 +23,11 @@ void changeHealth(PPLAYER player, double damage) {
 	player->health -= damage;
 }
 
-void changeArmour(PPLAYER player, ARMOUR armour) {
+void changeArmour(PPLAYER player, ARMOUR* armour) {
 	player->armour = armour;
 }
 
-void changeWeapon(PPLAYER player, WEAPON weapon) {
+void changeWeapon(PPLAYER player, WEAPON* weapon) {
 	player->weapon = weapon;
 }
 
@@ -50,15 +50,15 @@ double getHealth(PPLAYER player) {
 }
 
 char* getWeaponName(PPLAYER player) {
-	return player->weapon.name;
+	return player->weapon->name;
 }
 
 char* getArmourName(PPLAYER player) {
-	return player->armour.name;
+	return player->armour->name;
 }
 
 double getArmourProtection(PPLAYER player) {
-	return player->armour.protection;
+	return player->armour->protection;
 }
 
 int getPotionCount(PPLAYER player) {
@@ -66,7 +66,7 @@ int getPotionCount(PPLAYER player) {
 }
 
 double attack(PPLAYER player) {
-	return player->weapon.damage;
+	return player->weapon->damage;
 }
 
 

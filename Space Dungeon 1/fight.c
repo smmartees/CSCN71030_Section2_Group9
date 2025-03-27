@@ -32,20 +32,23 @@ void calculateDamage(PPLAYER player, PALIEN alien, int pMove) {
         case 1: // player attack || alien attack 
             changeHealth(player, GetAlienAttack(*alien));
             ReduceAlienHealth(alien, attack(player));
+            printf("you both attack\n");
             break;
         case 2: // player attack || alien block
             reducedDamage1 = GetAlienAttack(*alien) - getArmourProtection(player);
             ReduceAlienHealth(alien, reducedDamage1);
+            printf("you attack, alien blocks\n");
             break;
         case 3: // player attack || alien dodge
             fiftyfifty = randomNumber(2, 1);
-
+            printf("you attack, alien dodges\n");
             if (fiftyfifty == 1){ // dodge success
                 printf("The Alien successfully dodged your attack\n");
             }
             else // dodge fail
             {
                 ReduceAlienHealth(alien, attack(player));
+                printf("the alien failed to dodge your attack\n");
             }
 
             break;
@@ -64,6 +67,7 @@ void calculateDamage(PPLAYER player, PALIEN alien, int pMove) {
         case 1:// player blocks || alien attacks
             reducedDamage1 = attack(player) - GetAlienDefence(*alien);
             changeHealth(player, reducedDamage1);
+            printf("you block, alien attacks\n");
             break;
         case 2: // player blocks || alien blocks
             printf("You have both chosen a defensive strategy, nothing happens\n");
@@ -91,6 +95,7 @@ void calculateDamage(PPLAYER player, PALIEN alien, int pMove) {
             else // dodge fail
             {
                 changeHealth(player, GetAlienAttack(*alien));
+                printf("you failed to dodge alien attack\n");
             }
 
             break;
