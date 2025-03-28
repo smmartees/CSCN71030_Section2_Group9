@@ -132,13 +132,11 @@ bool DestroyAlien(PALIEN alien) {
 void AlienContextHealth(ALIEN alien) {
 	
 	if (alien.health >= (alien.ogHealth * 0.75))
-		printf("The isn't even breaking a sweat!! Wait.. do aliens sweat?\n");
-	else if (alien.health <= (alien.ogHealth * 0.75))
+		printf("The alien isn't even breaking a sweat!! Wait.. do aliens sweat?\n");
+	else if (alien.health >= (alien.ogHealth * 0.5))
 		printf("The alien is starting to show signs of damage!\n");
-	else if (alien.health <= (alien.ogHealth * 0.5))
+	else if (alien.health >= (alien.ogHealth * 0.25))
 		printf("The alien.. it bleeds.. it can die..\n");
-	else if (alien.health <= (alien.ogHealth * 0.25))
+	else 
 		printf("The alien is badly injured. A wounded animal can be the most dangerous!\n");
-	else
-		printf("Dead as doornail.\n");
 }
