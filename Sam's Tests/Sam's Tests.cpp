@@ -148,6 +148,19 @@ namespace SamsTests
 
 			Assert::AreEqual(expectedHealth, actualHealth);
 		}
+		TEST_METHOD(ReduceAlienHealth_002)
+		{
+			// This test needs the defined ALIEN_NAME_OPTION to 1
+			double difficultyMod = 1.00;
+			PALIEN alien = CreateAlien(difficultyMod);
+
+			double damageReceived = 0.00;
+			double expectedHealth = alien->health - damageReceived;
+			ReduceAlienHealth(alien, damageReceived);
+			double actualHealth = alien->health;
+
+			Assert::AreEqual(expectedHealth, actualHealth);
+		}
 		TEST_METHOD(DestroyAlien_001)
 		{
 			// This test needs the defined ALIEN_NAME_OPTION to 1

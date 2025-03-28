@@ -64,3 +64,11 @@ void incrProgCount(PPROGRESSION prog) {
 	SetProgMod(prog);
 	SetDiffMod(prog);
 }
+
+// print out the floor & room location of the player based on progCount
+void printLocation(PROGRESSION prog) {
+	int floorNum = prog.progCount / 10;
+	int roomNum = prog.progCount % 10;
+
+	printf("You are located on floor %d, in room %d\n", floorNum, roomNum);
+}

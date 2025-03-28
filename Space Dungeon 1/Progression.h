@@ -27,3 +27,6 @@ void SetDiffMod(PPROGRESSION prog);
 
 // increment player progression through rooms
 void incrProgCount(PPROGRESSION prog);
+
+// print out the floor & room location of the player based on progCount
+void printLocation(PROGRESSION prog);
