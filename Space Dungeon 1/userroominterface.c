@@ -11,7 +11,7 @@ void displayRoomInterface() {
     printf("[c] take the center door\n");
     printf("[p] take a health potion\n");
     printf("[i] check your inventory\n");
-    printf("[o] show progress\n");
+    printf("[m] show progress\n");
     printf("[s] save Game\n");
     printf("[q] Quit game\n");
     printf("Enter Choice: ");
@@ -189,8 +189,9 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
             // check inventory 
             displayPlayer(player);
             break;
-        case 'o': // display progress
-            printf("Level: %d\n", prog->progCount);
+        case 'm': // display progress
+            printf("\n");
+            printLocation(*prog);
             break;
         case 's': //save game
             saveGame(player, prog, SAVEFILE);

@@ -42,11 +42,15 @@ void addPotion(PPLAYER player) {
 }
 
 void usePotion(PPLAYER player) {
-	if (player->health == 100.0) {
-		printf("your health is already full\n");
+	if (player->potions == 0) {
+		printf("\nYou do not have any potions\n");
 		return;
 	}
-	printf("Your health has been restored\n");
+	if (player->health == 100.0) {
+		printf("\nyour health is already full\n");
+		return;
+	}
+	printf("\nYour health has been restored\n");
 	player->health = 100.0;
 	player->potions--;
 }
@@ -77,7 +81,7 @@ double attack(PPLAYER player) {
 
 
 void displayPlayer(PPLAYER player) {
-	printf("--------Player Stats-----------\n");
+	printf("\n--------Player Stats-----------\n");
 	printf("HEALTH: [%.2f]\n", getHealth(player));
 	printf("Weapon: %s, Damage: [%.2f]\n", getWeaponName(player), attack(player));
 	printf("Armour: %s, Protection: [%.2f]\n", getArmourName(player), getArmourProtection(player));

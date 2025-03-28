@@ -9,6 +9,7 @@ void displayMoves() {
     printf("[d] Dodge\n");
     printf("[p] Take a Potion\n");
     printf("[i] Check inventory\n");
+    printf("[o] Display Alien Stats\n");
     printf("Enter Choice: ");
 }
 
@@ -17,8 +18,16 @@ int alienMoveSelection() {
 }
 
 void displayHealthNumbers(PPLAYER player, PALIEN alien) {
-    printf("Player Health: %.2f\n", player->health);
+    printf("\n----Remaining Health----\n");
+    printf("Player Health: [%.2f]\n", player->health);
+    printf("Alien Health: [%.2f]\n", alien->health);
+}
+
+void displayCurrentAlien(PALIEN alien) {
+    printf("\n----%s----\n", alien->name);
     printf("Alien Health: %.2f\n", alien->health);
+    printf("Alien Attack: %.2f\n", alien->attack);
+    printf("Alien Defence: %.2f\n", alien->defence);
 }
 
 // calculate the damage being inflicted and then distribute to the player/alien
@@ -37,12 +46,14 @@ void calculateDamage(PPLAYER player, PALIEN alien, int pMove) {
             changeHealth(player, GetAlienAttack(*alien));
             ReduceAlienHealth(alien, attack(player));
             printf("You both attack\n");
+            AlienContextHealth(*alien);
             displayHealthNumbers(player, alien);
             break;
         case 2: // player attack || alien block
             reducedDamage1 = fmax(0.00, attack(player) - GetAlienDefence(*alien));
             ReduceAlienHealth(alien, reducedDamage1);
             printf("You attack, alien blocks\n");
+            AlienContextHealth(*alien);
             displayHealthNumbers(player, alien);
             break;
         case 3: // player attack || alien dodge
@@ -56,6 +67,7 @@ void calculateDamage(PPLAYER player, PALIEN alien, int pMove) {
             {
                 ReduceAlienHealth(alien, attack(player));
                 printf("The alien failed to dodge your attack\n");
+                AlienContextHealth(*alien);
                 displayHealthNumbers(player, alien);
             }
 
@@ -137,11 +149,7 @@ bool triggerFight(PPLAYER player, PPROGRESSION prog) {
 
     // generate alien here
     PALIEN alien = CreateAlien(prog->diffMod);
-    printf("%s:\n", alien->name);
-    printf("Alien Health: %.2f\n", alien->health);
-    printf("Alien Attack: %.2f\n", alien->attack);
-    printf("Alien Defence: %.2f\n", alien->defence);
-
+    displayCurrentAlien(alien);
     
     do {
 
@@ -172,6 +180,9 @@ bool triggerFight(PPLAYER player, PPROGRESSION prog) {
         case 'i':
             displayPlayer(player);
             break;
+        case 'o':
+            displayCurrentAlien(alien);
+            break;
         default:
             printf("Invalid option\n");
             break;
@@ -180,6 +191,7 @@ bool triggerFight(PPLAYER player, PPROGRESSION prog) {
         if (getHealth(player) <= 0.00 && GetAlienHealth(*alien) <= 0.00) // check if both die
         {
             printf("You and the alien have attacked at the same time and you both perish\n");
+            printf("That sucks...\n");
             playerWin = false;
             quitCheck = false;
             DestroyAlien(alien);
