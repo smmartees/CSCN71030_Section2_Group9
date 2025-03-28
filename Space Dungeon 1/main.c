@@ -44,8 +44,6 @@ int main(void) {
 	// Enter the game
 	roomInterface(player, prog);
 
-	// deallocate memory 
-	/// could add some destroying functions to the following items
 	free(prog);
 	destroyPlayer(player); 
 	return 0;

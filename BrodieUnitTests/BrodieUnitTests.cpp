@@ -6,6 +6,11 @@ extern "C" {
 #include "../Space Dungeon 1/player.h"
 #include "../Space Dungeon 1/saveload.h"
 #include "../Space Dungeon 1/Progression.h"
+#include "../Space Dungeon 1/userroominterface.h"
+#include "../Space Dungeon 1/utils.h"
+#include "../Space Dungeon 1/Event.h"
+#include "../Space Dungeon 1/fight.h"
+#include "../Space Dungeon 1/alien.h"
 }
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -208,5 +213,45 @@ namespace BrodieUnitTests
 
 	};
 
+	TEST_CLASS(UserRoomInterface_Module)
+	{
+	public:
 
+		TEST_METHOD(Test_checkArmour)
+		{
+			// default player values
+			double health = 100.00;
+			ARMOUR* armour = createArmour("Helmet", 10.00);
+			WEAPON* weapon = createWeapon("Axe", 11.40);
+			int potions = 0;
+			PPLAYER player = createPlayer(health, armour, weapon, potions);
+
+			ARMOUR* newArmour = createArmour("ChestPlate", 5.00);
+
+			checkArmourSpecs(player, newArmour);
+
+			double expectedProtection = 10.00;
+
+			Assert::AreEqual(expectedProtection, newArmour->protection);
+		}
+
+		TEST_METHOD(Test_checkWeapon)
+		{
+			// default player values
+			double health = 100.00;
+			ARMOUR* armour = createArmour("Helmet", 10.00);
+			WEAPON* weapon = createWeapon("Axe", 10.00);
+			int potions = 0;
+			PPLAYER player = createPlayer(health, armour, weapon, potions);
+
+			WEAPON* newWeapon = createWeapon("ChestPlate", 5.00);
+
+			checkWeaponSpecs(player, newWeapon);
+
+			double expectedDamage = 10.00;
+
+			Assert::AreEqual(expectedDamage, newWeapon->damage);
+		}
+
+	};
 }
