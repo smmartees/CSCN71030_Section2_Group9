@@ -17,6 +17,18 @@ void displayRoomInterface() {
     printf("Enter Choice: ");
 }
 
+void checkWeaponSpecs(PPLAYER player, WEAPON* weapon) {
+    if (weapon->damage < player->weapon->damage) {
+        weapon->damage = player->weapon->damage;
+    }
+}
+
+void checkArmourSpecs(PPLAYER player, ARMOUR* armour) {
+    if (armour->protection < player->armour->protection) {
+        armour->protection = player->armour->protection;
+    }
+}
+
 void roomInterface(PPLAYER player, PPROGRESSION prog) {
     // room flags
     bool quitCheck = true;
@@ -34,7 +46,7 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
         switch (inputChar) {
         case 'l': // taking the left door
             // call event trigger 
-            printf("\ntaking left door\n");
+            printf("\n----Taking left door----\n");
             eventType = eventTrigger();
 
             if (eventType == LOOT) {
@@ -43,12 +55,14 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
                 int lootType = randomNumber(3, 1);
                 if (lootType == 1) {
                     ARMOUR* newArmour = generateRandomArmour();
+                    checkArmourSpecs(player, newArmour);
                     changeArmour(player, newArmour);
                     printf("you have recieved a %s with %.2f protection\n", newArmour->name, newArmour->protection);
                 }
                 else if (lootType == 2)
                 {
                     WEAPON* newWeapon = generateRandomWeapon();
+                    checkWeaponSpecs(player, newWeapon);
                     changeWeapon(player, newWeapon);
                     printf("you have recieved a %s with %.2f damage\n", newWeapon->name, newWeapon->damage);
                 }
@@ -78,7 +92,7 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
             break;
         case 'r': // taking the right door
             // call event trigger 
-            printf("taking right door\n");
+            printf("\n----Taking right door----\n");
             eventType = eventTrigger();
 
             if (eventType == LOOT) {
@@ -87,12 +101,14 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
                 int lootType = randomNumber(3, 1);
                 if (lootType == 1) {
                     ARMOUR* newArmour = generateRandomArmour();
+                    checkArmourSpecs(player, newArmour);
                     changeArmour(player, newArmour);
                     printf("you have recieved a %s with %.2f protection\n", newArmour->name, newArmour->protection);
                 }
                 else if (lootType == 2)
                 {
                     WEAPON* newWeapon = generateRandomWeapon();
+                    checkWeaponSpecs(player, newWeapon);
                     changeWeapon(player, newWeapon);
                     printf("you have recieved a %s with %.2f damage\n", newWeapon->name, newWeapon->damage);
                 }
@@ -122,7 +138,7 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
             break;
         case 'c':// take the center door
             // call event trigger 
-            printf("taking center door\n");
+            printf("\n----Taking center door----\n");
             eventType = eventTrigger();
 
             if (eventType == LOOT) {
@@ -131,12 +147,14 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
                 int lootType = randomNumber(3, 1);
                 if (lootType == 1) {
                     ARMOUR* newArmour = generateRandomArmour();
+                    checkArmourSpecs(player, newArmour);
                     changeArmour(player, newArmour);
                     printf("you have recieved a %s with %.2f protection\n", newArmour->name, newArmour->protection);
                 }
                 else if (lootType == 2)
                 {
                     WEAPON* newWeapon = generateRandomWeapon();
+                    checkWeaponSpecs(player, newWeapon);
                     changeWeapon(player, newWeapon);
                     printf("you have recieved a %s with %.2f damage\n", newWeapon->name, newWeapon->damage);
                 }

@@ -77,8 +77,7 @@ double attack(PPLAYER player) {
 
 
 void displayPlayer(PPLAYER player) {
-	printf("\nPlayer Stats:\n");
-	printf("-------------------------------\n");
+	printf("--------Player Stats-----------\n");
 	printf("HEALTH: [%.2f]\n", getHealth(player));
 	printf("Weapon: %s, Damage: [%.2f]\n", getWeaponName(player), attack(player));
 	printf("Armour: %s, Protection: [%.2f]\n", getArmourName(player), getArmourProtection(player));
