@@ -140,3 +140,31 @@ void AlienContextHealth(ALIEN alien) {
 	else 
 		printf("The alien is badly injured. A wounded animal can be the most dangerous!\n");
 }
+
+// provides context to the alien's attack stat
+void AlienContextAttack(ALIEN alien) {
+
+	if (alien.attack >= (ALIEN_ATTACK_FLOOR + ALIEN_ATTACK_RANGE)) {
+		printf("The %s is top-tier crazy space dangerous! ", alien.name);
+		printf("Time to bust out a roll of quarters!\n");
+	}
+	else if (alien.attack >= (ALIEN_ATTACK_FLOOR + ALIEN_ATTACK_RANGE) * 0.75)
+		printf("Oof, that's looks like a tough %s\n", alien.name);
+	else if (alien.attack >= (ALIEN_ATTACK_FLOOR + ALIEN_ATTACK_RANGE) * 0.5)
+		printf("PSSSHHHHHHHHHHHhhhhhhhh I've seen scarier looking fan art than this %s\n", alien.name);
+	else
+		printf("If not friend, why %s friend shaped?\n", alien.name);
+}
+
+// provides context to the alien's defense stat
+void AlienContextDefense(ALIEN alien) {
+
+	if (alien.defence >= (ALIEN_DEFENCE_FLOOR + ALIEN_DEFENCE_RANGE))
+		printf("Oh dang, that's a thicc ol' %s\n", alien.name);
+	else if (alien.defence >= (ALIEN_DEFENCE_FLOOR + ALIEN_DEFENCE_RANGE) * 0.75)
+		printf("This %s looks like it can take a lickin' and keep ooooon a-tickin'\n", alien.name);
+	else if (alien.defence >= (ALIEN_DEFENCE_FLOOR + ALIEN_DEFENCE_RANGE) * 0.5)
+		printf("Looks like a gentle breeze could take this thing out.\n");
+	else
+		printf("If you lose to a %s like this.. book club will never let me live it down..\n", alien.name);
+}
