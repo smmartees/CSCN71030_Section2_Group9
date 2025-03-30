@@ -10,4 +10,8 @@
 
 void displayRoomInterface();
 
+void checkWeaponSpecs(PPLAYER player, WEAPON* weapon);
+
+void checkArmourSpecs(PPLAYER player, ARMOUR* armour);
+
 void roomInterface(PPLAYER player, PPROGRESSION prog); 

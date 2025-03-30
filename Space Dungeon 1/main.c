@@ -12,12 +12,20 @@
 #define DEFAULT_DAMAGE 10.00
 #define DEFAULT_ARMOUR 5.00
 
-int main(void) {
+int main(int argc, char* argv[]) {
+
+	if (argc != 2) {
+		printf("This program only accepts a single argument\n");
+		return 1;
+	}
+	
+	int n = atoi(argv[1]);
+
+	printf("Difficulty: %d\n", n);
 
 	// seed for game randomization events
 	srand(time(NULL));
 
-	int n = 1; // command line argument
 	int choice = mainMenu();
 	if (choice == 3) {
 		printf("Exiting game...\n");
@@ -44,8 +52,6 @@ int main(void) {
 	// Enter the game
 	roomInterface(player, prog);
 
-	// deallocate memory 
-	/// could add some destroying functions to the following items
 	free(prog);
 	destroyPlayer(player); 
 	return 0;

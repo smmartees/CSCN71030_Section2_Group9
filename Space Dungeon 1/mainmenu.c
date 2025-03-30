@@ -21,7 +21,6 @@ int mainMenu() { // need to add progression module inside here as well
 
         switch (inputChar) {
         case 'n': // start a new game
-            printf("starting new game...\n");
             choice = 1; // 1 = flag to start new game
             quitCheck = false;
             break;
