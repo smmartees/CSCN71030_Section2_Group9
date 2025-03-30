@@ -149,8 +149,10 @@ bool triggerFight(PPLAYER player, PPROGRESSION prog) {
 
     // generate alien here
     PALIEN alien = CreateAlien(prog->diffMod);
+    printf("\n");
+    AlienContextAttack(*alien);
+    AlienContextDefense(*alien);
     displayCurrentAlien(alien);
-    
     do {
 
         // print menu here
