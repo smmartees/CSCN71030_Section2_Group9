@@ -111,7 +111,7 @@ ARMOUR* generateRandomArmour(double diffMod){
 	strcat(armourName, " ");
 	strcat(armourName, armours[randomRow][1]);
 
-	// Base protection between 15 and 25, scaled by diffMod
+	// Protection between 10 and 15, scaled by diffMod
 	double baseProtection = randomNumber(10,15);
 	double finalProtection = baseProtection * diffMod;
 

@@ -118,7 +118,65 @@ namespace JohansTests
 			Assert::IsNull(armour);
 			destroyArmour(armour);
 		}
+		//Testing the saveWeapon function and loadWeapon function
+		TEST_METHOD(TEST_LOOT_009) {
+
+			// Create a test weapon
+			WEAPON* testWeapon = createWeapon("Test Sword", 25.5);
+			Assert::IsNotNull(testWeapon);
+
+			// Save it to a test file
+			FILE* fp = fopen("weapon_test.bin", "wb");
+			Assert::IsNotNull(fp);
+			saveWeapon(fp, testWeapon);
+			fclose(fp);
+
+			// open file for reading
+			fp = fopen("weapon_test.bin", "rb");
+			Assert::IsNotNull(fp);
+
+			// Read weapon
+			WEAPON* loadedWeapon = loadWeapon(fp);
+			fclose(fp);
+
+			Assert::IsNotNull(loadedWeapon);
+			Assert::AreEqual(std::string(testWeapon->name), std::string(loadedWeapon->name));
+			Assert::AreEqual(testWeapon->damage, loadedWeapon->damage);
+
 		
+			destroyWeapon(testWeapon);
+			destroyWeapon(loadedWeapon);
+		}
+		//Testing the saveArmour function and loadArmour function
+		TEST_METHOD(TEST_LOOT_010) {
+
+			ARMOUR* testArmour = createArmour("Test Helmet", 18.75);
+			Assert::IsNotNull(testArmour);
+
+			// Save it to a test file
+			FILE* fp = fopen("armour_test.bin", "wb");
+			Assert::IsNotNull(fp);
+			saveArmour(fp, testArmour);
+			fclose(fp);
+
+			// Reopen file for reading
+			fp = fopen("armour_test.bin", "rb");
+			Assert::IsNotNull(fp);
+
+			// Read back the armour
+			ARMOUR* loadedArmour = loadArmour(fp);
+			fclose(fp);
+
+			// Validate that the armour data matches
+			Assert::IsNotNull(loadedArmour);
+			Assert::AreEqual(std::string(testArmour->name), std::string(loadedArmour->name));
+			Assert::AreEqual(testArmour->protection, loadedArmour->protection);
+
+			// Clean up memory
+			destroyArmour(testArmour);
+			destroyArmour(loadedArmour);
+
+		}
 		TEST_METHOD(TEST_FIGHT_001)
 		{ // Set up test environment
 		
