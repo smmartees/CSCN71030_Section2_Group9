@@ -18,12 +18,12 @@ typedef struct armour {
 WEAPON* createWeapon(char* name, double damage);
 void destroyWeapon(WEAPON* weapon);
 
-WEAPON* generateRandomWeapon();
+WEAPON* generateRandomWeapon(double diffMod);
 
 ARMOUR* createArmour(char* name, double protection);
 void destroyArmour(ARMOUR* armour);
 
-ARMOUR* generateRandomArmour();
+ARMOUR* generateRandomArmour(double diffMod);
 //void generateLoot(WEAPON* weapon, ARMOUR* armour);
 
 void saveWeapon(FILE* fp, WEAPON* weapon);
