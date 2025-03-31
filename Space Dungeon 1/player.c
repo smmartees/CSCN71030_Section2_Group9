@@ -90,9 +90,7 @@ void displayPlayer(PPLAYER player) {
 }
 
 void destroyPlayer(PPLAYER player) {
-	/*free(player->weapon->name);
-	free(player->armour->name);
-	free(player->weapon);
-	free(player->armour);*/
+	destroyArmour(player->armour);
+	destroyWeapon(player->weapon);
 	free(player);
 }
