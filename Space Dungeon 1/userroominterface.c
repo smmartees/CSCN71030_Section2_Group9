@@ -54,14 +54,14 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
                 printf("\nYou have found loot in this room...\n");
                 int lootType = randomNumber(3, 1);
                 if (lootType == 1) {
-                    ARMOUR* newArmour = generateRandomArmour();
+                    ARMOUR* newArmour = generateRandomArmour(prog->diffMod);
                     checkArmourSpecs(player, newArmour);
                     changeArmour(player, newArmour);
                     printf("you have recieved a %s with %.2f protection\n", newArmour->name, newArmour->protection);
                 }
                 else if (lootType == 2)
                 {
-                    WEAPON* newWeapon = generateRandomWeapon();
+                    WEAPON* newWeapon = generateRandomWeapon(prog->diffMod);
                     checkWeaponSpecs(player, newWeapon);
                     changeWeapon(player, newWeapon);
                     printf("you have recieved a %s with %.2f damage\n", newWeapon->name, newWeapon->damage);
@@ -100,14 +100,14 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
                 printf("\nYou have found loot in this room...\n");
                 int lootType = randomNumber(3, 1);
                 if (lootType == 1) {
-                    ARMOUR* newArmour = generateRandomArmour();
+                    ARMOUR* newArmour = generateRandomArmour(prog->diffMod);
                     checkArmourSpecs(player, newArmour);
                     changeArmour(player, newArmour);
                     printf("you have recieved a %s with %.2f protection\n", newArmour->name, newArmour->protection);
                 }
                 else if (lootType == 2)
                 {
-                    WEAPON* newWeapon = generateRandomWeapon();
+                    WEAPON* newWeapon = generateRandomWeapon(prog->diffMod);
                     checkWeaponSpecs(player, newWeapon);
                     changeWeapon(player, newWeapon);
                     printf("you have recieved a %s with %.2f damage\n", newWeapon->name, newWeapon->damage);
@@ -146,14 +146,14 @@ void roomInterface(PPLAYER player, PPROGRESSION prog) {
                 printf("\nYou have found loot in this room...\n");
                 int lootType = randomNumber(3, 1);
                 if (lootType == 1) {
-                    ARMOUR* newArmour = generateRandomArmour();
+                    ARMOUR* newArmour = generateRandomArmour(prog->diffMod);
                     checkArmourSpecs(player, newArmour);
                     changeArmour(player, newArmour);
                     printf("you have recieved a %s with %.2f protection\n", newArmour->name, newArmour->protection);
                 }
                 else if (lootType == 2)
                 {
-                    WEAPON* newWeapon = generateRandomWeapon();
+                    WEAPON* newWeapon = generateRandomWeapon(prog->diffMod);
                     checkWeaponSpecs(player, newWeapon);
                     changeWeapon(player, newWeapon);
                     printf("you have recieved a %s with %.2f damage\n", newWeapon->name, newWeapon->damage);
