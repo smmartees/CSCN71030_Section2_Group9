@@ -73,13 +73,13 @@ void printLocation(PROGRESSION prog) {
 	printf("You are HERE: ->*<- \nfloor %d, in room %d\n", floorNum, roomNum);
 
 	for (int i = 0; i <= floorNum; i++) {
-		for (int j = 0; j < 10; j++) {
+		for (int j = 1; j <= 10; j++) {
 			if (i == floorNum && j == roomNum)
-				printf("[You are HERE ->*<-]");
+				printf("[->*<-]");
 			else
 				printf("[]");
 		}
 		printf("\n");
 	}
-
+	printf("\nI wonder how much further to the bottom?...\n");
 }
