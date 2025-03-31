@@ -8,6 +8,7 @@ extern "C" {
 #include "../Space Dungeon 1/player.h"
 #include "../Space Dungeon 1/alien.h"
 #include "../Space Dungeon 1/utils.h"
+#include "../Space Dungeon 1/Progression.h"
 }
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -70,8 +71,10 @@ namespace JohansTests
 		//Testing the generateRandomWeapon()
 		TEST_METHOD(TEST_LOOT_005)
 		{
+			PPROGRESSION prog= initNewProg(1);
 			
-			WEAPON* weapon = generateRandomWeapon();
+			
+			WEAPON* weapon = generateRandomWeapon(prog->diffMod);
 
 			
 			Assert::IsNotNull(weapon);
@@ -86,8 +89,8 @@ namespace JohansTests
 		//Testing the generateRandomArmour()
 		TEST_METHOD(TEST_LOOT_006)
 		{
-
-			ARMOUR* armour = generateRandomArmour();
+			PPROGRESSION prog = initNewProg(1);
+			ARMOUR* armour = generateRandomArmour(prog->diffMod);
 
 
 			Assert::IsNotNull(armour);
@@ -139,7 +142,7 @@ namespace JohansTests
 
 
 			// Expected values
-			double expectedPlayerHealth = 70.00;
+			double expectedPlayerHealth = 80.00;
 			double expectedAlienHealth = 90.00 ;
 
 			// Assertions

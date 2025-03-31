@@ -31,7 +31,7 @@ void destroyWeapon(WEAPON* weapon) {
 	free(weapon);
 }
 //Function To create 3 predefined weapons and selects one weapon using random generator
-WEAPON* generateRandomWeapon() {
+WEAPON* generateRandomWeapon(double diffMod) {
 
 	
 
@@ -55,10 +55,11 @@ WEAPON* generateRandomWeapon() {
 	strcat(weaponName, " ");
 	strcat(weaponName, weapons[randomRow][1]);
 
-	// damage between 15 and 25
-	int damage = (rand() % 11) + 15; 
+	// Base damage between 5 and 15, scaled by diffMod
+	double baseDamage = randomNumber(5, 15);
+	double finalDamage = baseDamage * diffMod;
 
-	return createWeapon(weaponName, damage);
+	return createWeapon(weaponName, finalDamage);
 }
 //Function to create armour
 ARMOUR* createArmour(char* name, double protection) {
@@ -85,7 +86,7 @@ void destroyArmour(ARMOUR* armour) {
 	free(armour);
 }
 
-ARMOUR* generateRandomArmour() {
+ARMOUR* generateRandomArmour(double diffMod){
 	
 	srand(time(NULL));
 	int randomSelector;
@@ -110,26 +111,26 @@ ARMOUR* generateRandomArmour() {
 	strcat(armourName, " ");
 	strcat(armourName, armours[randomRow][1]);
 
-	// damage between 15 and 25
-	int damage = (rand() % 11) + 15;
+	// Base protection between 15 and 25, scaled by diffMod
+	double baseProtection = randomNumber(10,15);
+	double finalProtection = baseProtection * diffMod;
 
-
-	return createArmour(armourName, damage);
+	return createArmour(armourName, finalProtection);
 }
 //function is not required
-void generateLoot(WEAPON* weapon, ARMOUR* armour) {
-	srand(time(NULL));
-
-	if (rand() % 2 == 0) {
-		*weapon = *generateRandomWeapon();
-		printf("You found a weapon: %s with %.2f damage\n", weapon->name, weapon->damage);
-		
-	}
-	else {
-		*armour = *generateRandomArmour();
-		printf("You found an armour: %s with %.2f protection\n", armour->name, armour->protection);
-	}
-}
+//void generateLoot(WEAPON* weapon, ARMOUR* armour) {
+//	srand(time(NULL));
+//
+//	if (rand() % 2 == 0) {
+//		*weapon = *generateRandomWeapon();
+//		printf("You found a weapon: %s with %.2f damage\n", weapon->name, weapon->damage);
+//		
+//	}
+//	else {
+//	//	*armour = *generateRandomArmour();
+//		printf("You found an armour: %s with %.2f protection\n", armour->name, armour->protection);
+//	}
+//}
 
 void saveWeapon(FILE* fp, WEAPON* weapon) {
 	if (weapon) {
