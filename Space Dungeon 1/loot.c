@@ -92,8 +92,8 @@ ARMOUR* generateRandomArmour(double diffMod){
 	int randomSelector;
 	char* armours[3][2] = {
 		  {"Fire", "helmet"},
-		  {"Light", "chestpiece"},
-		  {"Thunder", "boot"}
+		  {"Titanium", "chestpiece"},
+		  {"Jetpack", "boots"}
 	};
 
 	int randomRow = rand() % 3;
