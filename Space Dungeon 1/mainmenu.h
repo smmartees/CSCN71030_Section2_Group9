@@ -7,6 +7,8 @@
 
 void printMainMenu();
 
+void printTitle();
+
 int mainMenu();
 
 //void menuChoice(PPLAYER player, int choice);
