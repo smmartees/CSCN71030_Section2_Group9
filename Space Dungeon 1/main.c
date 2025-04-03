@@ -52,6 +52,8 @@ int main(int argc, char* argv[]) {
 	// Enter the game
 	roomInterface(player, prog);
 
+	printf("\nShutting Down...\n");
+
 	free(prog);
 	destroyPlayer(player); 
 	return 0;
