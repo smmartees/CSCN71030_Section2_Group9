@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
-    <ProjectGuid>{ADC4B75C-C5E7-4703-AC68-55A39B9375AD}</ProjectGuid>
+    <ProjectGuid>{BB4CA9D2-35E0-A781-A3FB-B350F1590340}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>SamsTests</RootNamespace>
+    <RootNamespace>BrodieUnitTests</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectSubType>NativeUnitTestProject</ProjectSubType>
   </PropertyGroup>
@@ -158,20 +158,30 @@
   <ItemGroup>
     <ClCompile Include="..\Space Dungeon 1\Alien.c" />
     <ClCompile Include="..\Space Dungeon 1\Event.c" />
+    <ClCompile Include="..\Space Dungeon 1\fight.c" />
+    <ClCompile Include="..\Space Dungeon 1\loot.c" />
+    <ClCompile Include="..\Space Dungeon 1\player.c" />
     <ClCompile Include="..\Space Dungeon 1\Progression.c" />
+    <ClCompile Include="..\Space Dungeon 1\saveload.c" />
+    <ClCompile Include="..\Space Dungeon 1\userroominterface.c" />
     <ClCompile Include="..\Space Dungeon 1\utils.c" />
+    <ClCompile Include="BrodieUnitTests.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Sam%27s Tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Space Dungeon 1\Alien.h" />
     <ClInclude Include="..\Space Dungeon 1\Event.h" />
+    <ClInclude Include="..\Space Dungeon 1\fight.h" />
+    <ClInclude Include="..\Space Dungeon 1\loot.h" />
+    <ClInclude Include="..\Space Dungeon 1\player.h" />
     <ClInclude Include="..\Space Dungeon 1\Progression.h" />
+    <ClInclude Include="..\Space Dungeon 1\saveload.h" />
+    <ClInclude Include="..\Space Dungeon 1\userroominterface.h" />
     <ClInclude Include="..\Space Dungeon 1\utils.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>

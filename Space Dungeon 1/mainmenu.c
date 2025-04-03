@@ -8,9 +8,19 @@ void printMainMenu() {
     printf("Enter Choice: ");
 }
 
+void printTitle() {
+    printf("****************************************************\n");
+    printf("*    *       *       *       *       *       *    *\n");
+    printf("*  *   *   *   *   S P A C E   S P A C E  *   *  *\n");
+    printf("*    *       *       *       *       *       *    *\n");
+    printf("****************************************************\n");
+}
+
 int mainMenu() { // need to add progression module inside here as well
     // room flags
     bool quitCheck = true;
+    // title
+    printTitle();
     int choice = 0;
     do {
 
@@ -21,7 +31,6 @@ int mainMenu() { // need to add progression module inside here as well
 
         switch (inputChar) {
         case 'n': // start a new game
-            printf("starting new game...\n");
             choice = 1; // 1 = flag to start new game
             quitCheck = false;
             break;

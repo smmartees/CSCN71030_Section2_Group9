@@ -15,69 +15,51 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c">
+    <ClCompile Include="Johan%27sTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="player.c">
+    <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="userroominterface.c">
+    <ClCompile Include="..\Space Dungeon 1\loot.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="saveload.c">
+    <ClCompile Include="..\Space Dungeon 1\fight.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="loot.c">
+    <ClCompile Include="..\Space Dungeon 1\Alien.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Alien.c">
+    <ClCompile Include="..\Space Dungeon 1\player.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Event.c">
+    <ClCompile Include="..\Space Dungeon 1\utils.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fight.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="mainmenu.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Progression.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="utils.c">
+    <ClCompile Include="..\Space Dungeon 1\Progression.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="player.h">
+    <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="userroominterface.h">
+    <ClInclude Include="..\Space Dungeon 1\loot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="saveload.h">
+    <ClInclude Include="..\Space Dungeon 1\fight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="loot.h">
+    <ClInclude Include="..\Space Dungeon 1\Alien.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Alien.h">
+    <ClInclude Include="..\Space Dungeon 1\player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Event.h">
+    <ClInclude Include="..\Space Dungeon 1\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="fight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="mainmenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Progression.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="utils.h">
+    <ClInclude Include="..\Space Dungeon 1\Progression.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

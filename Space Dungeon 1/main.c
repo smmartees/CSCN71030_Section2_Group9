@@ -9,26 +9,39 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define DEFAULT_DAMAGE 10.00
+#define DEFAULT_ARMOUR 5.00
 
-int main(void) {
+int main(int argc, char* argv[]) {
 
+	if (argc != 2) {
+		printf("This program only accepts a single argument\n");
+		return 1;
+	}
+	
+	int n = atoi(argv[1]);
+
+	printf("Difficulty: %d\n", n);
+
+	// seed for game randomization events
 	srand(time(NULL));
 
-	int n = 1; // command line argument
 	int choice = mainMenu();
 	if (choice == 3) {
 		printf("Exiting game...\n");
 		exit(EXIT_SUCCESS);
 	}
-	ARMOUR armour = { "Chestplate", 10.0 }; // default start armour
-	WEAPON weapon = { "Sword", 20.0 }; // default start weapon
+	// Game Defaults
+	ARMOUR* armour = createArmour("Helmet", DEFAULT_ARMOUR); // default start armour
+	WEAPON* weapon = createWeapon("Axe", DEFAULT_DAMAGE); // default start weapon
 	PPLAYER player = createPlayer(HEALTH_DEFAULT, armour, weapon, POTION_DEFAULT); // default new character
 	PPROGRESSION prog = initNewProg(n);
 
 	if (choice == 2) {// load game
-		bool loadCheck = loadGame(player, prog);
+		bool loadCheck = loadGame(player, prog, SAVEFILE);
 		if (loadCheck == false) {
 			printf("There was a problem loading your game, shutting down...\n");
+			exit(EXIT_FAILURE);
 		}
 	}
 	else // new game
@@ -36,8 +49,12 @@ int main(void) {
 		printf("Starting a new game...\n");
 	}
 
+	// Enter the game
 	roomInterface(player, prog);
 
-	destroyPlayer(player);
+	printf("\nShutting Down...\n");
+
+	free(prog);
+	destroyPlayer(player); 
 	return 0;
 }
